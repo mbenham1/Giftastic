@@ -19,16 +19,42 @@ function displayGifs() {
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var sportImage = $("<img>");
-            sportImage.attr("src", results[i].images.fixed_height.url);
-
+            var image = $("<img>");
+            var stillImage = results[i].images.fixed_height_still.url;
+            var movingImage = results[i].images.fixed_height.url;
+            image.attr("src", stillImage);
+            image.attr("data-still", stillImage);
+            image.attr("data-moving", movingImage);
             gifDiv.prepend(p);
-            gifDiv.prepend(sportImage);
+            gifDiv.prepend(image);
+
+            // var sportGif = $("<img>")
+            // sportImage.attr("src", results[i].images.fixed_height_still.url);
+            // sportGif.attr("src", results[i].images.fixed_height.url);
+            // sportImage.attr("data-still", sportImage);
+            // sportGif.attr("data-moving", sportGif);
+            // gifDiv.prepend(p);
+            // gifDiv.prepend(sportImage);
 
             $("#add-new").prepend(gifDiv);
+
         }
     });
 }
+
+function animate() {
+    var picture = $(this).attr("src");
+    var still = $(this).attr("data-still");
+    var moving = $(this).attr("data-moving");
+
+    if (picture === still) {
+        $(this).attr("src", moving);
+    } else {
+        $(this).attr("src", still);
+    }
+
+}
+
 
 function renderButtons() {
 
@@ -52,5 +78,7 @@ $("#add-button").on("click", function (event) {
 });
 
 $(document).on("click", ".sport", displayGifs);
+
+$(document).on("click", "img", animate);
 
 renderButtons();

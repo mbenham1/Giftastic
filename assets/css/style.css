@@ -9,14 +9,6 @@ body, #add-new, .jumbotron {
     background: -webkit-linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); 
     background: linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); 
 }
-/* 
-.container {
-    background-color: green;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 15px;
-} */
 
 img {
     height: 200px;
@@ -35,4 +27,3 @@ img {
   padding-top: 25px;
   padding-bottom: 15px; 
 }
- 
