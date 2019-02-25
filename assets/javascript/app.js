@@ -55,7 +55,6 @@ function animate() {
 
 }
 
-
 function renderButtons() {
 
     $("#buttons-view").empty();
